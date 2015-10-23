@@ -1,0 +1,89 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\newcommand{\campo}[1]{\mathbb{#1}}
+\newtheorem{teo}{Teorema}
+\newtheorem{case}{Caso}
+\newtheorem{itdef}{Definizione}
+\newtheorem{prop}{Proprietà}
+\title{Title}
+\author{Author}
+\date{Today}
+\maketitle
+
+\begin{teo}[Padding Lemma] 
+"Ci sono infiniti, numerabili, algoritmi che calcolano la stessa funzione"\\\\
+Ogni funzione $\varphi_x$ ha $\#(\campo{N})$ indici. Inoltre $\forall x$ si può costruire, mediante funzioni ricorsive primitive un insieme finito $A_x$ di indici t.c. $\forall y \in A_x . \varphi_y = \varphi_x$
+\end{teo}
+
+\begin{teo}{Di forma normale}
+"Tra tutti gli algoritmi ce n'è uno con una forma particolare"\\\\
+$\exists$ un predicato $T(i,x,y)$ e $\exists$ una funzione $U(y)$ calcolabili totali t.c. $$\forall i, x . \varphi_i(x)=U(\mu y.T(i,x,y))$$
+\end{teo}
+
+\begin{teo}
+Una funzione è T-calcolabile sse è $\mu$-calcolabile
+\end{teo}
+
+\begin{teo}
+"Questo teorema dice che un formalismo universale, cioè uno che esprime tutte le funzioni calcolabili, è così potente da riuscire ad esprimere l'interprete dei propri programmi"
+\\\\
+$\exists$ una funziona calcolabile parziale $\varphi_x(i,x)$ t.c. $\forall i,x . \varphi(i,x)=\varphi_i(x)$
+\end{teo}
+
+\begin{teo} \ \
+\begin{case}[s-1-1]
+$\exists$ una funzione calcolabile totale inettiva $s_1^1$ con due argomenti t.c. $\forall x,y . \varphi_{s_1^1(x,y)}=\mu z . \varphi_x(y,z)$
+\\ \\
+Il teorema s-m-n è importante in informatica poichè è alla base per la tecnica di "valutazione parziale" secondo la quale si specializza via via un programma generale per ottenere versioni più efficienti in casi particolari
+\end{case}
+\begin{case}[generale]
+$\forall m,n \ge 0\ \exists$ una funzione calcolabile totale inettiva $s_m^n$ con $m+1$ parametri t.c. $\forall x, y_1, \dots, y_m$ 
+$$\varphi^n_{s_m^n(x, y_1, \dots, y_m)}=\lambda z_1, \dots, z_n . \varphi_x^{m+n}(y_1, \dots, y_m, z_1, \dots, z_n)$$
+\end{case}
+\end{teo}
+
+\begin{teo}[Espressività]
+Un formalismo è T-esprimibile sse 
+\begin{itemize}
+	\item ha un algoritmo universale (Teorema di Enumerazione)
+	\item vale il Teorema del Parametro
+\end{itemize}
+\end{teo}
+
+\begin{teo}[di Ricorsione / Kleene II]
+$$\forall f \text{ funzione calcolabile } \exists\ n\ t.c.\ \varphi_n = \varphi_{f(n)}$$
+\end{teo}
+
+\begin{itdef}[Ricorsività]
+I è ricorsivo (ovvero decidibile) sse la sua funzione caratteristica 
+$$ \chi_I(x) = 
+	\begin{cases} 
+		1 &\mbox{x $\in$ I} \\
+		0 &\mbox{\text{altrimenti}}
+	\end{cases} $$
+è calcolabile totale
+\end{itdef}
+
+\begin{itdef}[Ricorsione enumerabile]
+I è ricorsivamente enumerabile sse $I = dom(\varphi_i)$
+\end{itdef}
+
+\begin{prop}
+$I$ricorsivo $\Rightarrow$ I ricorsivamente enumerabile
+\end{prop}
+\begin{prop}
+$I, \bar{I}$ ricorsivamente enumerabili $\Rightarrow$ $I\ (e\ \bar{I})$ sono ricorsivi
+\end{prop}
+
+\begin{teo}[Appartenenza ad insiemi ricorsivi]
+I è ricorsivamente enumerabile $\Leftrightarrow$ \begin{itemize} \item è vuoto \item è immagine di una funzione calcolabile totale \end{itemize}
+\end{teo}
+
+\begin{itdef}[Insieme di indici che rispettano le funzioni] \ \\ Se
+ $$x \in A \wedge  \varphi_x = \varphi_y \Rightarrow y \in A $$ si dice che l'insieme che A è un i.i.r.f. (insieme di indici che rispettano le funzioni)
+\end{itdef}
+\end{document}
